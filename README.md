@@ -36,15 +36,15 @@ Before you get started with Debate Master, make sure you have the following prer
 
 5. Access the web application in your browser by navigating to http://localhost:8501.
 
-Usage
+##Usage
 On the web application, enter a debate topic in the sidebar and confirm it.
 Adjust the difficulty level using the slider.
 Type your message and click "Send."
 The AI chatbot will respond based on the topic and difficulty level.
 Chat history will be displayed in the application.
-Contributing
-If you would like to contribute to Debate Master, please follow these steps:
 
+##Contributing
+If you would like to contribute to Debate Master, please follow these steps:
 Fork the repository.
 Create a new branch for your feature or bug fix: git checkout -b feature/your-feature.
 Make your changes and test them thoroughly.
@@ -54,7 +54,7 @@ Create a pull request on the original repository.
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contact
+##Contact
 For questions or support, please contact Your Name.
 
 Happy debating with Debate Master!
