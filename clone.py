@@ -20,7 +20,7 @@ def debate_bot_response(content, topic, difficulty):
     llm = ChatOpenAI(
     model='gpt-3.5-turbo',
     temperature=1,
-    openai_api_key='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')
+    openai_api_key='YOUR-OpenAI-APIKEY')
 
     prompt = ChatPromptTemplate(
     input_variables=['content'],
