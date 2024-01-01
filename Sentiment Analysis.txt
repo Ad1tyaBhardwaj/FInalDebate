@@ -1,0 +1,23 @@
+Sentiment Analysis
+1. Created and trained own model
+2. Tirendaz/emotion-analysis-with-distilbert
+3. nvidia/slu_conformer_transformer_large_slurp
+
+I can show you the Model I created and Trained, and show the ETA
+
+1. Llama 2 - Nous-Hermes 13B
+2. MLewdBoros 13B
+3. MythoMax 13B
+4. OpenOrca-Platypus2 13B
+5. Llama 2 - Hermes 7B
+6. Athena 13B
+7. google/flan-t5-xl
+
+oobabooga/text-generation-webui and Faraday
+
+RTX 4070 Ti
+12 GB VRAM
+14 GB RAM 
+$0.32/hr
+
+If we run model for whole day, then
