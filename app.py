@@ -1,44 +1,30 @@
-import os
-import gtts
-from dotenv import load_dotenv, find_dotenv
-import streamlit as st
-from st_chat_message import message
-load_dotenv('.env', override=True)
-
-
+from dotenv import find_dotenv, load_dotenv
+#from transformers import pipeline
 from langchain.chat_models import ChatOpenAI
-from langchain.schema import SystemMessage
-from langchain.chains import LLMChain
-from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
+from langchain import PromptTemplate, LLMChain, OpenAI
 
 
 load_dotenv(find_dotenv())
 
 #llm
-def debate_bot_response(content, topic, difficulty):
-    llm = ChatOpenAI(
-    model='gpt-3.5-turbo',
-    temperature=1,
-    openai_api_key='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')
+def generate_response(scenario):
+    template = """
+    you are a story teller;
+    you can generate a short story based on a simple narrative, the story should be no more than 20 words
 
-    prompt = ChatPromptTemplate(
-    input_variables=['content'],
-    messages=[
-        SystemMessage(content=f'You are a debating with the person on the topic: "{topic}". You need to counter the points given by user. Assuming it as a game, you need to counter the user based on the difficulty given. On a scale of 1-10, where 1 means Giving very low level of counters and letting the user win, and 10 means aggressivly countering every point of user, and trying to defeat the user. The current difficulty is: "{difficulty}". Give responses in not more than 40 words.'),
-        HumanMessagePromptTemplate.from_template('{content}')
-       ]
-    )
+    CONTEXT: {scenario}
+    STORY:
+    """
 
-    chain = LLMChain(
-    llm=llm,
-    prompt=prompt,
-    verbose=False
-    )
-    if content in ['quit','exit','bye']:
-        print('Goodbye!')
-        return
-    response = chain.run({'content': content})
-    print(response)
+    prompt: PromptTemplate(template = template, input_variable=["scenario"])
+
+    story_llm = LLMChain(llm=OpenAI(
+        model_name="gpt-3.5-turbo", temprature=1), prompt=prompt, verbose=True)
+    
+    story = story_llm.predict(scenario=scenario)
+
+    print(story)
+    return(story)
 
 
-debate_bot_response("I think AI will take away all jobs","future of AI",5)
+generate_response("2 people standing on a beach")
